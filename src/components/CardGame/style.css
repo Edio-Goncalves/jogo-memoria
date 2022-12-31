@@ -1,12 +1,11 @@
 .card-game {
   width: 100px;
   height: 100px;
-  background-color: bisque;
-  font-size: 30px;
-  box-shadow: 5px 5px 5px rgb(0 0 0 / 40%);
-  border-radius: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Righteous", sans-serif;
+  background-color: var(--color-first);
+  font-size: 3rem;
+  box-shadow: 5px 5px 5px rgb(0 0 0 / 40%);
+  border-radius: 25px;
 }
