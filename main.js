@@ -5,4 +5,4 @@ import BoardGame from "./src/objects/BoardGame";
 
 const $root = document.querySelector("#root");
 
-$root.insertAdjacentHTML("beforeend", BoardGame(5));
+$root.insertAdjacentHTML("beforeend", BoardGame(20));
