@@ -6,4 +6,11 @@ import PlayerMoves from "./src/components/PlayerMoves";
 
 const $root = document.querySelector("#root");
 
-$root.insertAdjacentHTML("beforeend", PlayerMoves() + BoardGame(20));
+$root.insertAdjacentHTML(
+  "beforeend",
+  `
+   ${PlayerMoves()}
+   ${BoardGame(10)}
+
+  `
+);
