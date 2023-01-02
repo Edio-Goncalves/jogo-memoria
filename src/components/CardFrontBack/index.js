@@ -1,11 +1,11 @@
-import BoardGame from "../../objects/BoardGame";
+// import BoardGame from "../../objects/BoardGame";
 import CardGame from "../CardGame";
 
 function CardFrontBack() {
   return /* html */ `
 <article class="card-front-back">
-    ${CardGame()}
-    ${CardGame()}
+    ${CardGame("facebook")}
+    ${CardGame("&lt/&gt")}
 </article>
 `;
 }
