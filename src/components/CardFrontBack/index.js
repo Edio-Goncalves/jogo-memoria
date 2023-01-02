@@ -1,11 +1,15 @@
-// import BoardGame from "../../objects/BoardGame";
+import "./style.css";
 import CardGame from "../CardGame";
 
 function CardFrontBack() {
   return /* html */ `
 <article class="card-front-back">
+  <div class="card -front">
     ${CardGame("facebook")}
-    ${CardGame("&lt/&gt")}
+  </div>
+  <div class="card -back">
+    ${CardGame()}
+  </div>
 </article>
 `;
 }
