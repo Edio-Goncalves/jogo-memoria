@@ -10,7 +10,7 @@ $root.insertAdjacentHTML(
   "beforeend",
   `
    ${PlayerMoves()}
-   ${BoardGame(10)}
+   ${BoardGame(20)}
 
   `
 );
