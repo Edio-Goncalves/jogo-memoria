@@ -1,9 +1,0 @@
-html,
-body {
-  font-family: "Righteous", sans-serif;
-  font-size: 10px;
-  background-color: var(--color-body);
-  max-width: 580px;
-  margin-left: auto;
-  margin-right: auto;
-}
