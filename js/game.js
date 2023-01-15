@@ -1,22 +1,62 @@
 const main = document.querySelector(".main");
 
-function createElemento(tag, className) {
+const icons = [
+  "facebook",
+  "instagram",
+  "linkedin",
+  "pinterest",
+  "snapchat",
+  "tiktok",
+  "twitter",
+  "wechat",
+  "whatsapp",
+  "youtube",
+];
+
+function createElelments(tag, className) {
   const element = document.createElement(tag);
-  element.classList = className;
+  element.className = className;
   return element;
 }
 
-function createHtml() {
-  const header = createElemento("header", "header");
-  const grid = createElemento("section", "grid");
-  const card = createElemento("section", "card");
-  const front = createElemento("article", "face front");
-  const back = createElemento("article", "face back");
+/* cria o header e o grid */
+function createMainHtml() {
+  const header = createElelments("header", "header");
+  const grid = createElelments("section", "grid");
 
-  card.appendChild(front);
-  card.appendChild(back);
-  grid.appendChild(card);
+  header.className = "header";
+  grid.className = "grid";
+
   main.appendChild(header);
   main.appendChild(grid);
+
+  return grid;
 }
-createHtml();
+
+/* cria o html do card */
+function createCard(icon) {
+  const card = createElelments("section", "card");
+  const faceFront = createElelments("article", "face front");
+  const faceback = createElelments("article", "face back");
+
+  faceFront.style.backgroundImage = `url(../images/${icon}.png)`;
+
+  card.appendChild(faceFront);
+  card.appendChild(faceback);
+  return card;
+}
+
+function boardGame() {
+  const duplicateIcons = [...icons, ...icons];
+  const shuffledIcons = duplicateIcons.sort(() => Math.random() - 0.5);
+
+  console.log(shuffledIcons);
+
+  const grid = createMainHtml();
+
+  shuffledIcons.forEach(function (icon) {
+    const card = createCard(icon);
+    grid.appendChild(card);
+  });
+}
+boardGame();
