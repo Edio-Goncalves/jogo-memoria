@@ -13,6 +13,8 @@ const icons = [
   "whatsapp",
   "youtube",
 ];
+let firstCard = "";
+let secondCard = "";
 
 function createElements(tag, className) {
   const element = document.createElement(tag);
@@ -20,8 +22,6 @@ function createElements(tag, className) {
 
   return element;
 }
-let firstCard = "";
-let secondCard = "";
 
 function checkEndGame() {
   const disabled = document.querySelectorAll(".disabledCard");
