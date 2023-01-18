@@ -48,3 +48,7 @@
 .revealCard {
   transform: rotateY(180deg);
 }
+.disabledCard {
+  filter: saturate(0.5);
+  opacity: 50%;
+}

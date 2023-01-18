@@ -11,38 +11,21 @@ const icons = [
   "whatsapp",
   "youtube",
 ];
+
 let firstCard = "";
 let secondCard = "";
 
-/* CREATE DOUBLE CARD LOGIC */
-function revealCard(event) {
-  const revealCard = event.target.closest(".card");
-  if (revealCard.className.includes("revealCard")) {
-    return;
-  }
+/* CRIA OS ELEMENTOS DO HTML */
 
-  if (firstCard === "") {
-    revealCard.classList.add("revealCard");
-    firstCard = revealCard;
-  } else if (secondCard === "") {
-    revealCard.classList.add("revealCard");
-    secondCard = revealCard;
-    checkCards();
-  }
-
-  console.log(revealCard);
-}
-
-/* CREATE ELEMEMENTS*/
 function createElements(tag, className) {
   const element = document.createElement(tag);
   element.className = className;
   return element;
 }
 
-/* CREATE HTML HEADER AND GRID */
-function createMainHtml() {
-  const header = createElements("section", "header");
+/* CRIA O HTML DO HEADER E GRID */
+function createHtmlMain() {
+  const header = createElements("header", "header");
   const grid = createElements("section", "grid");
 
   main.appendChild(header);
@@ -50,33 +33,80 @@ function createMainHtml() {
 
   return grid;
 }
+/* CHECANDO SE È FINAL DO JOGO */
+function checkEndGame() {
+  const disabled = document.querySelectorAll(".disabledCard");
+  if (disabled.length === 20) {
+    alert("parabés");
+  }
+}
+/* CHECA AS CARTAS */
 
-function checkCards() {}
+function checkCards() {
+  const checkFirst = firstCard.getAttribute("data-icon");
+  const checkSecond = secondCard.getAttribute("data-icon");
 
-/* CREATE CARD */
-function createCard(icon) {
+  if (checkFirst === checkSecond) {
+    firstCard.firstChild.classList.add("disabledCard");
+    secondCard.firstChild.classList.add("disabledCard");
+
+    firstCard = "";
+    secondCard = "";
+
+    checkEndGame();
+  } else {
+    setTimeout(() => {
+      firstCard.classList.remove("revealCard");
+      secondCard.classList.remove("revealCard");
+      firstCard = "";
+      secondCard = "";
+    }, 500);
+  }
+}
+
+/* REVELA AS CARTAS E CRIA A LOGICA DE 2 CARTAS */
+function revealCards(event) {
+  const revealCards = event.target.closest(".card");
+  if (revealCards.className.includes("revealCard")) {
+    return;
+  }
+
+  if (firstCard === "") {
+    revealCards.classList.add("revealCard");
+    firstCard = revealCards;
+  } else if (secondCard === "") {
+    revealCards.classList.add("revealCard");
+    secondCard = revealCards;
+
+    checkCards();
+  }
+}
+
+/* CEIA A BASE DAS CARTAS */
+function createCards(icon) {
   const card = createElements("section", "card");
-  const front = createElements("article", "face front");
-  const back = createElements("article", "face back");
+  const faceFront = createElements("article", "face front");
+  const faceBack = createElements("article", "face back");
 
-  front.style.backgroundImage = `url(../images/${icon}.png)`;
-  card.addEventListener("click", revealCard);
+  faceFront.style.backgroundImage = `url(../images/${icon}.png)`;
+  card.addEventListener("click", revealCards);
+  card.setAttribute("data-icon", icon);
 
-  card.appendChild(front);
-  card.appendChild(back);
+  card.appendChild(faceFront);
+  card.appendChild(faceBack);
 
   return card;
 }
 
-/* ADD 20 CARD GAMES AND LOAD GAME */
+/* INICIA O JOGO */
 function loadGame() {
-  const grid = createMainHtml();
+  const grid = createHtmlMain();
 
-  const duplicatIcons = [...icons, ...icons];
-  const shuffledIcons = duplicatIcons.sort(() => Math.random() - 0.5);
+  const duplicate = [...icons, ...icons];
+  const shuffleCards = duplicate.sort(() => Math.random() - 0.5);
 
-  shuffledIcons.forEach((icon) => {
-    const card = createCard(icon);
+  shuffleCards.forEach((icon) => {
+    const card = createCards(icon);
     grid.appendChild(card);
   });
 }
