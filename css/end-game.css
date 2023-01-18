@@ -1,4 +1,5 @@
 .end-game {
+  visibility: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,4 +19,7 @@
   border-radius: 1rem;
   padding: 2rem;
   cursor: pointer;
+}
+.visibility {
+  visibility: visible;
 }

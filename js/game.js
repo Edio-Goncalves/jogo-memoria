@@ -2,7 +2,7 @@ const main = document.querySelector(".main");
 const grid = document.querySelector(".grid");
 const spanPlayer = document.querySelector(".player");
 const spanTimer = document.querySelector(".timer");
-console.log(spanTimer);
+const endGame = document.querySelector(".end-game");
 
 const icons = [
   "facebook",
@@ -32,8 +32,10 @@ function createElements(tag, className) {
 function checkEndGame() {
   const disabled = document.querySelectorAll(".disabledCard");
   if (disabled.length === 20) {
-    clearInterval(this.loop);
-    alert("parabés");
+    clearTimeout(this.loop);
+    setInterval(() => {
+      endGame.classList.add("visibility");
+    }, 1000);
   }
 }
 /* CHECA AS CARTAS */
