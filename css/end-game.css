@@ -1,0 +1,21 @@
+.end-game {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.95);
+  color: white;
+  font-size: 4rem;
+  gap: 2rem;
+}
+.end-game .button {
+  font-size: 2rem;
+  background-color: yellow;
+  border: none;
+  border-radius: 1rem;
+  padding: 2rem;
+  cursor: pointer;
+}
