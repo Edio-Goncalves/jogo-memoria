@@ -1,4 +1,9 @@
 const main = document.querySelector(".main");
+const grid = document.querySelector(".grid");
+const spanPlayer = document.querySelector(".player");
+const spanTimer = document.querySelector(".timer");
+console.log(spanTimer);
+
 const icons = [
   "facebook",
   "instagram",
@@ -23,20 +28,11 @@ function createElements(tag, className) {
   return element;
 }
 
-/* CRIA O HTML DO HEADER E GRID */
-function createHtmlMain() {
-  const header = createElements("header", "header");
-  const grid = createElements("section", "grid");
-
-  main.appendChild(header);
-  main.appendChild(grid);
-
-  return grid;
-}
-/* CHECANDO SE È FINAL DO JOGO */
+/* CHECANDO SE É FINAL DO JOGO */
 function checkEndGame() {
   const disabled = document.querySelectorAll(".disabledCard");
   if (disabled.length === 20) {
+    clearInterval(this.loop);
     alert("parabés");
   }
 }
@@ -100,8 +96,6 @@ function createCards(icon) {
 
 /* INICIA O JOGO */
 function loadGame() {
-  const grid = createHtmlMain();
-
   const duplicate = [...icons, ...icons];
   const shuffleCards = duplicate.sort(() => Math.random() - 0.5);
 
@@ -111,4 +105,15 @@ function loadGame() {
   });
 }
 
-loadGame();
+function starTimer() {
+  this.loop = setInterval(() => {
+    const currentTime = +spanTimer.innerHTML;
+    spanTimer.innerHTML = currentTime + 1;
+  }, 1000);
+}
+
+window.onload = () => {
+  spanPlayer.innerHTML = localStorage.getItem("player");
+  starTimer();
+  loadGame();
+};

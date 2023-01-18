@@ -7,6 +7,20 @@
   padding: 0px 20px;
 }
 
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: red;
+  font-size: clamp(1.5rem, 1.5rem + 1vw, 3rem);
+  width: 100%;
+  max-width: 800px;
+  box-sizing: border-box;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
