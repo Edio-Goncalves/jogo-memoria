@@ -3,6 +3,8 @@ const grid = document.querySelector(".grid");
 const spanPlayer = document.querySelector(".player");
 const spanTimer = document.querySelector(".timer");
 const endGame = document.querySelector(".end-game");
+const congratulations = document.querySelector(".congratulations");
+const btn = document.querySelector(".button");
 
 const icons = [
   "facebook",
@@ -28,6 +30,17 @@ function createElements(tag, className) {
   return element;
 }
 
+/* CREATE RELOAD GAME */
+function reloadGame(event) {
+  console.log(event.target);
+}
+
+/* CREATE CONGRATULATION */
+function createCongratulation() {
+  congratulations.innerHTML = `Parabéns ${spanPlayer.innerHTML}, você atingiu o score de ${spanTimer.innerHTML}`;
+  btn.addEventListener("click", reloadGame);
+}
+
 /* CHECANDO SE É FINAL DO JOGO */
 function checkEndGame() {
   const disabled = document.querySelectorAll(".disabledCard");
@@ -35,6 +48,7 @@ function checkEndGame() {
     clearTimeout(this.loop);
     setInterval(() => {
       endGame.classList.add("visibility");
+      createCongratulation();
     }, 1000);
   }
 }

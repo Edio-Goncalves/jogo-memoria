@@ -11,6 +11,11 @@
   color: white;
   font-size: 4rem;
   gap: 2rem;
+  text-align: center;
+}
+.end-game .congratulations {
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 .end-game .button {
   font-size: 2rem;
@@ -19,6 +24,7 @@
   border-radius: 1rem;
   padding: 2rem;
   cursor: pointer;
+  font-weight: 600;
 }
 .visibility {
   visibility: visible;
