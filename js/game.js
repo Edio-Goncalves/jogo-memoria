@@ -31,8 +31,8 @@ function createElements(tag, className) {
 }
 
 /* CREATE RELOAD GAME */
-function reloadGame(event) {
-  console.log(event.target);
+function reloadGame() {
+  window.location.reload();
 }
 
 /* CREATE CONGRATULATION */
