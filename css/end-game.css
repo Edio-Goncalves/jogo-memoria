@@ -29,3 +29,14 @@
 .visibility {
   visibility: visible;
 }
+
+@media screen and (max-width: 600px) {
+  .end-game {
+    font-size: 3rem;
+    gap: 2rem;
+  }
+  .end-game .button {
+    font-size: 1.5rem;
+    padding: 1.3rem;
+  }
+}
